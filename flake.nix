@@ -29,7 +29,7 @@
 	  {
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
-	    home-manager.users.abhigyan = import ./hosts/default/home.nix;
+	    home-manager.users.abhigyan = import ./home;
 	  }
 	  {
 	    nix.settings.trusted-users = [ "abhigyan" ];
