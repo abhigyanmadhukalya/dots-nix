@@ -156,6 +156,9 @@
   # Flatpak support
   services.flatpak.enable = true;
 
+  # Thermald for laptop
+  services.thermald.enable = true;
+
   # Firewall
   networking.firewall.enable = true;
   networking.firewall.allowedTCPPorts = [ 8384 22000 ];
