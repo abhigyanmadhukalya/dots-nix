@@ -1,6 +1,8 @@
-{ lib, pkgs, ... }:
-
 {
+  lib,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     neofetch
 
@@ -16,6 +18,7 @@
     yq-go
     eza
     fzf
+    stow
 
     # networking tools
     mtr

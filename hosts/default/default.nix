@@ -1,15 +1,18 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../modules/nvidia.nix
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../modules/nvidia.nix
+    ../../modules/nixvim.nix
+  ];
 
   # Bootloader.
   boot.loader = {
@@ -20,7 +23,7 @@
   networking.hostName = "abhigyan-nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.settings.auto-optimise-store = true;
 
   # Configure network proxy if necessary
@@ -91,12 +94,12 @@
   users.users.abhigyan = {
     isNormalUser = true;
     description = "Abhigyan Madhukalya";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       firefox
       keepassxc
       alacritty
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -106,9 +109,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    neovim
     btop
     syncthing
     git
@@ -118,12 +120,8 @@
     adw-gtk3
   ];
 
-  # Neovim settings
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
-  
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -163,19 +161,19 @@
   services.auto-cpufreq.enable = true;
   services.auto-cpufreq.settings = {
     battery = {
-       governor = "powersave";
-       turbo = "never";
+      governor = "powersave";
+      turbo = "never";
     };
     charger = {
-       governor = "performance";
-       turbo = "auto";
+      governor = "performance";
+      turbo = "auto";
     };
   };
 
   # Firewall
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 8384 22000 ];
-  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+  networking.firewall.allowedTCPPorts = [8384 22000];
+  networking.firewall.allowedUDPPorts = [22000 21027];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -184,5 +182,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
