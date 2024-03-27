@@ -40,5 +40,6 @@
     pciutils
     usbutils
     duf
+    inxi
   ];
 }
