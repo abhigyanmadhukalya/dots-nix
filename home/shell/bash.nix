@@ -2,7 +2,7 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-    basrcExtra = ''
+    bashrcExtra = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
     '';
     shellAliases = {
