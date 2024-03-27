@@ -85,6 +85,7 @@
       btop = "btop --utf-force";
       ls = "eza --long --header --git --all --icons=always";
       ll = "eza -l -h --icons=always";
+      g = "git";
     };
   };
 
