@@ -11,6 +11,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/nvidia.nix
+    ../../modules/nixvim.nix
   ];
 
   # Bootloader.
