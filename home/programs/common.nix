@@ -19,6 +19,7 @@
     eza
     fzf
     stow
+    neovim
 
     # networking tools
     mtr
