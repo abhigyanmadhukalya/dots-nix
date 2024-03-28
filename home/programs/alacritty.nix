@@ -1,6 +1,8 @@
 {pkgs, ...}: let
   font = "JetBrainsMono Nerd Font";
 in {
+  home.packages = with pkgs; [alacritty];
+
   programs.alacritty = {
     enable = true;
     settings = {

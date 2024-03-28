@@ -12,6 +12,7 @@
     ./hardware-configuration.nix
     ../../modules/nvidia.nix
     ../../modules/nixvim.nix
+    ../../modules/networking.nix
   ];
 
   # Bootloader.
@@ -30,11 +31,11 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
   # Enable fstrim.timer
   services.fstrim.enable = true;
+
+  # Enable Network Manager
+  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -95,12 +96,7 @@
     isNormalUser = true;
     description = "Abhigyan Madhukalya";
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      firefox
-      keepassxc
-      alacritty
-      #  thunderbird
-    ];
+    packages = with pkgs; [];
   };
 
   # Allow unfree packages
@@ -111,9 +107,7 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    btop
     syncthing
-    git
     gh
     curl
     gnome.gnome-tweaks
@@ -170,10 +164,7 @@
     };
   };
 
-  # Firewall
-  networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [8384 22000];
-  networking.firewall.allowedUDPPorts = [22000 21027];
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

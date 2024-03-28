@@ -18,7 +18,10 @@
     yq-go
     eza
     fzf
-    stow
+    lf
+    bat
+    direnv
+    btop
 
     # networking tools
     mtr
@@ -37,6 +40,9 @@
 
     # nix-reladted
     nix-output-monitor
+    alejandra
+    deadnix
+    statix
 
     # sys tools
     lm_sensors

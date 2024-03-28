@@ -11,6 +11,7 @@
       ls = "eza --long --header --git --all --icons=always";
       ll = "eza -l -h --icons=always";
       g = "git";
+      nixr = "sudo nixos-rebuild switch --flake ~/.dotfiles#default";
     };
   };
 }

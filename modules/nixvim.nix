@@ -14,7 +14,10 @@ in {
   ];
 
   programs.nixvim = {
-    enable = true; options = { number = true; relativenumber = true;
+    enable = true;
+    options = {
+      number = true;
+      relativenumber = true;
       signcolumn = "yes";
       shiftwidth = 4;
       autoindent = true;
@@ -84,16 +87,16 @@ in {
         action = "<Cmd>Lspsaga hover_doc<CR>";
         options = options;
       }
-	  {
-		  key = "sf";
-		  action = "<Cmd>Telescope find_files<CR>";
-		  options = options;
-	  }
-	  {
-		  key = "<C-n>";
-		  action = "<Cmd>Neotree toggle<CR>";
-		  options = options;
-	  }
+      {
+        key = "sf";
+        action = "<Cmd>Telescope find_files<CR>";
+        options = options;
+      }
+      {
+        key = "<C-n>";
+        action = "<Cmd>Neotree toggle<CR>";
+        options = options;
+      }
     ];
     plugins = {
       lualine.enable = true;
@@ -105,8 +108,21 @@ in {
       gitsigns.enable = true;
       fidget.enable = true;
       indent-blankline.enable = true;
-	  neo-tree.enable = true;
+      neo-tree.enable = true;
       which-key.enable = true;
+      conform-nvim = {
+        enable = true;
+        formatOnSave = {
+          lspFallback = true;
+          timeoutMs = 300;
+        };
+        formattersByFt = {
+          lua = ["stylua"];
+          python = ["isort" "black"];
+          nix = ["alejandra"];
+          "_" = ["trim_whitespace"];
+        };
+      };
       lsp = {
         enable = true;
         servers = {
