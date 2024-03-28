@@ -31,7 +31,6 @@
       gh = "cd";
       "g/" = "/";
 
-      ee = "editor-open";
       V = ''$${pkgs.bat}/bin/bat --paging=always --theme=gruvbox "$f"'';
 
       # ...

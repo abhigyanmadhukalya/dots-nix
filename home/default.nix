@@ -5,6 +5,8 @@
 }: {
   imports = [
     ./programs
+    ./terminals
+    ./misc
   ];
 
   home = {

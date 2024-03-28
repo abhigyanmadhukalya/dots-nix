@@ -6,6 +6,6 @@
     ./app.nix
     ./starship
     ./bash.nix
-    ./alacritty.nix
+    ./neofetch.nix
   ];
 }

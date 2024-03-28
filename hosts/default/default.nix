@@ -12,7 +12,7 @@
     ./hardware-configuration.nix
     ../../modules/nvidia.nix
     ../../modules/nixvim.nix
-    ../../modules/networking.nix
+    ../../modules/network.nix
   ];
 
   # Bootloader.
@@ -114,10 +114,6 @@
     adw-gtk3
   ];
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
-  ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -163,8 +159,6 @@
       turbo = "auto";
     };
   };
-
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
