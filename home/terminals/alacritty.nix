@@ -6,14 +6,16 @@ in {
   programs.alacritty = {
     enable = true;
     settings = {
-      window.dynamic_padding = true;
-      window.padding = {
-        x = 5;
-        y = 5;
-      };
-      window.dimensions = {
-        columns = 160;
-        lines = 35;
+      window = {
+        dynamic_padding = true;
+        padding = {
+          x = 5;
+          y = 5;
+        };
+        dimensions = {
+          columns = 160;
+          lines = 35;
+        };
       };
       scrolling.history = 10000;
       font = {

@@ -34,9 +34,11 @@
           ./hosts/default
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.abhigyan = import ./home;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.abhigyan = import ./home;
+            };
           }
           {
             nix.settings.trusted-users = ["abhigyan"];

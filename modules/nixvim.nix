@@ -31,42 +31,42 @@ in {
       {
         key = "ss";
         action = "<Cmd>split<CR>";
-        options = options;
+        inherit options;
       }
       {
         key = "sv";
         action = "<Cmd>vsplit<CR>";
-        options = options;
+        inherit options;
       }
       {
         key = "+";
         action = "<C-a>";
-        options = options;
+        inherit options;
       }
       {
         key = "-";
         action = "<C-x>";
-        options = options;
+        inherit options;
       }
       {
         key = "sh";
         action = "<C-w>h";
-        options = options;
+        inherit options;
       }
       {
         key = "sj";
         action = "<C-w>j";
-        options = options;
+        inherit options;
       }
       {
         key = "sk";
         action = "<C-w>k";
-        options = options;
+        inherit options;
       }
       {
         key = "sl";
         action = "<C-w>l";
-        options = options;
+        inherit options;
       }
       {
         key = "<C-j>";
@@ -75,22 +75,22 @@ in {
               vim.diagnostic.goto_next()
           end
         '';
-        options = options;
+        inherit options;
       }
       {
         key = "K";
         action = "<Cmd>Lspsaga hover_doc<CR>";
-        options = options;
+        inherit options;
       }
       {
         key = "sf";
         action = "<Cmd>Telescope find_files<CR>";
-        options = options;
+        inherit options;
       }
       {
         key = "<C-n>";
         action = "<Cmd>Neotree toggle<CR>";
-        options = options;
+        inherit options;
       }
     ];
     plugins = {
