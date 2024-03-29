@@ -1,13 +1,4 @@
-{pkgs, ...}:
-with builtins; let
-  DEFAULT_BRANCH = "main";
-  DEFAULT_BRANCH_OLD = "master";
-  DEVELOP_BRANCH = "develop";
-  DEVELOP_BRANCH_ABBREV = "dev";
-
-  PROTECTED_BRANCHE_LIST = [DEFAULT_BRANCH DEFAULT_BRANCH_OLD DEVELOP_BRANCH DEVELOP_BRANCH_ABBREV];
-  PROTECTED_BRANCHES_STR = concatStringsSep "|" PROTECTED_BRANCHE_LIST;
-in {
+{pkgs, ...}: {
   home.packages = with pkgs; [gh git];
 
   programs.gh = {
@@ -22,7 +13,7 @@ in {
     userEmail = "amadhukalya2005@gmail.com";
 
     extraConfig = {
-      init.defaultBranch = DEFAULT_BRANCH;
+      init.defaultBranch = "main";
       branch.sort = "-committerdate";
       core.editor = "nvim";
       pull.ff = "only";

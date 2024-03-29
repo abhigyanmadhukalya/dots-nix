@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   xdg.configFile."lf/icons".source = ../../extra/icons;
 
   programs.lf = {

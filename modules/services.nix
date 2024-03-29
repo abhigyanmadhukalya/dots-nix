@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{...}: {
   # Enable fstrim timer for SSDs
   services.fstrim.enable = true;
 

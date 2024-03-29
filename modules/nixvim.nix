@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: let
+{inputs, ...}: let
   options = {
     silent = true;
     noremap = true;
