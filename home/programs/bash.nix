@@ -3,7 +3,7 @@
     enable = true;
     enableCompletion = true;
     bashrcExtra = ''
-         export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+           export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
       export EDITOR="nvim"
     '';
     shellAliases = {
@@ -14,5 +14,10 @@
       g = "git";
       nixr = "sudo nixos-rebuild switch --flake ~/.dotfiles#default";
     };
+    initExtra = ''
+      cya() {
+       systemctl poweroff
+      }
+    '';
   };
 }

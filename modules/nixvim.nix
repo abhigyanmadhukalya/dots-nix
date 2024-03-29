@@ -100,6 +100,7 @@ in {
     ];
     plugins = {
       lualine.enable = true;
+      bufferline.enable = true;
       lspsaga.enable = true;
       treesitter.enable = true;
       telescope.enable = true;

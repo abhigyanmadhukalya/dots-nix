@@ -13,13 +13,14 @@
     ../../modules/nvidia.nix
     ../../modules/nixvim.nix
     ../../modules/network.nix
+    ../../modules/services.nix
   ];
 
   # Bootloader.
   boot.loader = {
     efi.canTouchEfiVariables = true;
+    systemd-boot.enable = true;
   };
-  boot.loader.systemd-boot.enable = true;
 
   networking.hostName = "abhigyan-nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -30,9 +31,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable fstrim.timer
-  services.fstrim.enable = true;
 
   # Enable Network Manager
   networking.networkmanager.enable = true;
@@ -110,8 +108,6 @@
     syncthing
     gh
     curl
-    gnome.gnome-tweaks
-    adw-gtk3
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -121,44 +117,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
-    };
-    openFirewall = true;
-  };
-
-  # Syncthing
-  services.syncthing = {
-    enable = true;
-    user = "abhigyan";
-    dataDir = "/home/abhigyan/Documents";
-    configDir = "/home/abhigyan/.config/syncthing";
-  };
-
-  # Flatpak support
-  services.flatpak.enable = true;
-
-  # Thermald for laptop
-  services.thermald.enable = true;
-
-  services.auto-cpufreq.enable = true;
-  services.auto-cpufreq.settings = {
-    battery = {
-      governor = "powersave";
-      turbo = "never";
-    };
-    charger = {
-      governor = "performance";
-      turbo = "auto";
-    };
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

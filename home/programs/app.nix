@@ -3,6 +3,8 @@
     vscode
     firefox
     keepassxc
+    gnome.gnome-tweaks
+    adw-gtk3
+    gnomeExtensions.gsconnect
   ];
 }
-
