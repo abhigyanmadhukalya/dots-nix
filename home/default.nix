@@ -1,8 +1,8 @@
 {...}: {
   imports = [
     ./programs
-    ./terminals
     ./misc
+    ./commandline
   ];
 
   home = {
