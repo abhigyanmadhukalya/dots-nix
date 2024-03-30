@@ -16,6 +16,7 @@
     bat
     direnv
     btop
+    nitch
 
     # networking tools
     mtr

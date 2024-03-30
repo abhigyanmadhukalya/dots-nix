@@ -7,5 +7,6 @@
     gnome.gnome-tweaks
     adw-gtk3
     gnomeExtensions.gsconnect
+    discord
   ];
 }
