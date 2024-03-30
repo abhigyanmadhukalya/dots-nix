@@ -17,6 +17,7 @@
     direnv
     btop
     nitch
+    transmission
 
     # networking tools
     mtr
