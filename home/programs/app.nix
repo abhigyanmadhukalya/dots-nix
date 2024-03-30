@@ -8,5 +8,7 @@
     adw-gtk3
     gnomeExtensions.gsconnect
     discord
+    steam
+    thunderbird
   ];
 }

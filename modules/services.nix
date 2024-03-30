@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   services = {
     fstrim.enable = true;
 
@@ -25,6 +25,12 @@
 
     # Thermald for laptop
     thermald.enable = true;
+
+    # Enable MySQL
+    mysql = {
+      enable = true;
+      package = pkgs.mariadb;
+    };
 
     auto-cpufreq = {
       enable = true;
