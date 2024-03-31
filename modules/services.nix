@@ -5,7 +5,7 @@
 
     # Enable the OpenSSH daemon.
     openssh = {
-      enable = false;
+      enable = true;
       settings = {
         PermitRootLogin = "no";
         PasswordAuthentication = false;
