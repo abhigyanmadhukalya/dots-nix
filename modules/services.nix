@@ -1,10 +1,11 @@
 {pkgs, ...}: {
   services = {
+    # Enable fstrim timer for SSDs
     fstrim.enable = true;
 
     # Enable the OpenSSH daemon.
     openssh = {
-      enable = true;
+      enable = false;
       settings = {
         PermitRootLogin = "no";
         PasswordAuthentication = false;
@@ -46,5 +47,4 @@
       };
     };
   };
-  # Enable fstrim timer for SSDs
 }
