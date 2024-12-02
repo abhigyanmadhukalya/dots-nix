@@ -9,8 +9,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    #../../modules/nvidia.nix
-    # ../../modules/nixvim.nix
+    ../../modules/nvidia.nix
+    ../../modules/nixvim.nix
     ../../modules/network.nix
     ../../modules/services.nix
   ];
@@ -35,6 +35,9 @@
 
   # Enable Network Manager
   networking.networkmanager.enable = true;
+
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -96,7 +99,7 @@
     description = "Abhigyan Madhukalya";
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-    kdePackages.kate
+      kdePackages.kate
     ];
   };
 

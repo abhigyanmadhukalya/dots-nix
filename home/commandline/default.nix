@@ -1,7 +1,6 @@
 {...}: {
   imports = [
     ./alacritty.nix
-    ./wezterm
     ./starship
     ./git.nix
     ./lf.nix
