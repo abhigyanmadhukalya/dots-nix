@@ -9,8 +9,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules/nvidia.nix
-    ../../modules/nixvim.nix
+    #../../modules/nvidia.nix
+    # ../../modules/nixvim.nix
     ../../modules/network.nix
     ../../modules/services.nix
   ];
@@ -27,7 +27,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.settings.auto-optimise-store = true;
 
-  virtualisation.virtualbox.host.enable = true; # Virtualisation
+  #virtualisation.virtualbox.host.enable = true; # Virtualisation
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -54,24 +54,24 @@
     LC_TIME = "en_IN";
   };
 
-  services.xserver = {
-    # Enable the X11 windowing system.
-    enable = true;
+  # Enable the X11 windowing system.
+  # You can disable this if you're only using the Wayland session.
+  services.xserver.enable = true;
 
-    # Enable the GNOME Desktop Environment.
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+  # Enable the KDE Plasma Desktop Environment.
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
-    # Configure keymap in X11
+  # Configure keymap in X11
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -95,7 +95,9 @@
     isNormalUser = true;
     description = "Abhigyan Madhukalya";
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [];
+    packages = with pkgs; [
+    kdePackages.kate
+    ];
   };
 
   # Allow unfree packages
@@ -125,5 +127,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }

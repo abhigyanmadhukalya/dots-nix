@@ -13,14 +13,6 @@
       openFirewall = true;
     };
 
-    # Syncthing
-    syncthing = {
-      enable = true;
-      user = "abhigyan";
-      dataDir = "/home/abhigyan/Documents";
-      configDir = "/home/abhigyan/.config/syncthing";
-    };
-
     # Flatpak support
     flatpak.enable = true;
 
@@ -34,7 +26,7 @@
     };
 
     auto-cpufreq = {
-      enable = true;
+      enable = false;
       settings = {
         battery = {
           governor = "powersave";
