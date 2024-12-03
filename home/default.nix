@@ -3,6 +3,7 @@
     ./programs
     ./misc
     ./commandline
+    ./hyprland
   ];
 
   home = {

@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -65,6 +66,9 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  # Hyprland
+  programs.hyprland.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -97,9 +101,8 @@
   users.users.abhigyan = {
     isNormalUser = true;
     description = "Abhigyan Madhukalya";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "input"];
     packages = with pkgs; [
-      kdePackages.kate
     ];
   };
 

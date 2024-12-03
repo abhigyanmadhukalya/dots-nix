@@ -1,9 +1,9 @@
 {config, ...}: {
   # Nvidia
   services.xserver.videoDrivers = ["nvidia"];
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
   hardware.nvidia = {
     modesetting.enable = true;

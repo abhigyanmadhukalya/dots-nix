@@ -18,6 +18,7 @@
     btop
     nitch
     transmission
+    wl-clipboard
 
     # networking tools
     mtr
